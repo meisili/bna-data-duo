@@ -1,0 +1,119 @@
+body {
+    font-family: 'Georgia', serif; /* We can think more about font choices later */
+    line-height: 1.6;
+    margin: 0;
+    color: #333;
+    background-color: #f9fbf9; /* can be changed later as well */
+}
+
+h1, h2, h3 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #2d4a3e; /* Deep forest green */
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+/* "Sticky" class for pages */
+.nav-fixed {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #2d4a3e;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Ensure dropdown can position relative to nav container */
+.nav-links {
+    position: relative;
+}
+
+/* Dropdown menu for hamburger */
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    padding: 6px 0;
+    border-radius: 6px;
+    min-width: 160px;
+    z-index: 1001;
+}
+
+.menu-dropdown a {
+    display: block;
+    padding: 8px 16px;
+    color: #2d4a3e;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.menu-dropdown a:hover {
+    background: #f1f8f1;
+}
+
+.menu-dropdown.open {
+    display: block;
+}
+
+
+/* Content Sections */
+section {
+    padding: 4rem 10%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.title-chunk {
+    text-align: center;
+    padding: 6rem 10%;
+    background: linear-gradient(to bottom, #e8f5e9, #f9fbf9);
+}
+
+.placeholder-box {
+    background: #e0e0e0;
+    border: 2px dashed #999;
+    padding: 100px 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    border-top: 1px solid #ddd;
+    background: #eee;
+}
+
+/* Logo link styling: no underline and same color as nav links */
+.logo {
+    text-decoration: none;
+    color: #2d4a3e;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.logo:hover {
+    text-decoration: none;
+    color: #2d4a3e;
+}
