@@ -2,54 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About the Project</title>
+    <title>About | The Chemistry of Beauty</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <header class="navbar nav-fixed">
+    <header class="navbar">
         <a class="logo" href="index.html"><strong>TITLE PLACEHOLDER</strong></a>
         <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="database.html">Database</a>
-            <a href="about.html">About</a>
+            <a href="about.html" class="active">About</a>
         </nav>
     </header>
 
     <main>
-        <section id="inspiration">
+        <section class="page-hero">
             <h1>About the Project</h1>
-            <p>This project began with a simple question: <em>What are we actually putting on our skin?</em>  (description continues...) </p>
+            <p>The story behind our investigation into the chemicals hidden in everyday beauty products.</p>
         </section>
 
-        <section id="methodology" style="background-color: #f1f8f1; border-radius: 8px;">
+        <section class="content-section" id="inspiration">
+            <h2>Inspiration</h2>
+            <p>This project began with a simple question: <em>What are we actually putting on our skin?</em> (Description continues…)</p>
+        </section>
+
+        <section class="content-section" id="methodology">
             <h2>Methodology</h2>
-            <p><strong>The Data Analysis:</strong> PLACEHOLDER: Describe how we scraped or cleaned the chemical data here. Mention any specific Python libraries like Pandas used during the research phase.</p>
-            <p><strong>Technical Stack:</strong> This website was built using ... :</p>
-            <ul>
-                <li><strong>Structure:</strong> HTML & CSS</li>
-                <li><strong>Interactivity:</strong> PLACEHOLDER: Mention tools like JavaScript, D3.js, or Flourish here </li>
-                <li><strong>Deployment:</strong> PLACEHOLDER: Mention where the site is hosted</li>
-            </ul>
+            <div class="methodology-box">
+                <p><strong>The Data Analysis:</strong> PLACEHOLDER — Describe how we scraped or cleaned the chemical data here. Mention any specific Python libraries like Pandas used during the research phase.</p>
+                <p><strong>Technical Stack:</strong> This website was built using:</p>
+                <ul>
+                    <li><strong>Structure:</strong> HTML & CSS</li>
+                    <li><strong>Interactivity:</strong> PLACEHOLDER — Mention tools like JavaScript, D3.js, or Flourish here</li>
+                    <li><strong>Database:</strong> Supabase (PostgreSQL)</li>
+                    <li><strong>Deployment:</strong> PLACEHOLDER — Mention where the site is hosted</li>
+                </ul>
+            </div>
         </section>
 
-        <section id="sources">
+        <section class="content-section" id="sources">
             <h2>Sources & Data</h2>
-            <p>Our story are grounded in public records and expert testimony. Data was sourced from:</p>
-            <ul>
-                <li>PLACEHOLDER: link to the data website </li>
-                <li>PLACEHOLDER: link to the bio of the human source we interviewed</li>
-                <li>PLACEHOLDER: link to the bio of the human source we interviewed</li>
-                <li> ... </li>
+            <p>Our story is grounded in public records and expert testimony. Data was sourced from:</p>
+            <ul class="sources-list">
+                <li>PLACEHOLDER: <a href="#">Link to the data source</a></li>
+                <li>PLACEHOLDER: <a href="#">Bio of human source interviewed</a></li>
+                <li>PLACEHOLDER: <a href="#">Bio of human source interviewed</a></li>
             </ul>
-            <p>(other details related to our sources and data)</p>
+            <p>(Other details related to our sources and data)</p>
         </section>
 
-        <hr style="border: 0; border-top: 1px solid #ddd; margin: 0 10%;">
-
-        <section id="team">
+        <section class="content-section" id="team">
             <h2>Our Team</h2>
-            <div style="display: flex; gap: 40px; margin-top: 20px;">
+            <div class="team-grid">
                 <div class="team-member">
                     <h3>Author Name 1</h3>
                     <p>[Short bio: Brianna]</p>
