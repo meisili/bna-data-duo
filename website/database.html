@@ -2,8 +2,224 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Chemical Database</title>
+    <title>Database | The Chemistry of Beauty</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ── Database page specific styles ── */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f5f0eb;
+            color: #1a1a1a;
+        }
+
+        /* reuse your navbar style */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #2d4a3e;
+            color: white;
+        }
+        .navbar .logo { color: white; text-decoration: none; font-size: 1.1rem; }
+        .navbar .nav-links a { color: white; text-decoration: none; margin-left: 1.5rem; font-size: 0.9rem; opacity: 0.85; }
+        .navbar .nav-links a:hover { opacity: 1; }
+
+        /* ── Hero ── */
+        .db-hero {
+            background: #2d4a3e;
+            color: white;
+            padding: 3rem 2rem 2.5rem;
+            text-align: center;
+        }
+        .db-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-bottom: 0.5rem;
+        }
+        .db-hero p {
+            opacity: 0.75;
+            font-size: 0.95rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* ── Search bar ── */
+        .search-section {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .search-bar-wrapper {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        #search-input {
+            flex: 1;
+            padding: 0.85rem 1.2rem;
+            border: 2px solid #2d4a3e;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            background: white;
+            outline: none;
+            transition: box-shadow 0.2s;
+        }
+        #search-input:focus { box-shadow: 0 0 0 3px rgba(45,74,62,0.15); }
+
+        #search-btn {
+            padding: 0.85rem 1.8rem;
+            background: #2d4a3e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: background 0.2s;
+        }
+        #search-btn:hover { background: #1f3329; }
+
+        #clear-btn {
+            padding: 0.85rem 1.2rem;
+            background: transparent;
+            color: #2d4a3e;
+            border: 2px solid #2d4a3e;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s;
+            display: none;
+        }
+        #clear-btn:hover { background: #2d4a3e; color: white; }
+
+        /* Column filter */
+        .filter-row {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .filter-row label { font-size: 0.85rem; color: #555; }
+        #column-select {
+            padding: 0.5rem 0.9rem;
+            border: 1.5px solid #ccc;
+            border-radius: 5px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            background: white;
+            cursor: pointer;
+        }
+
+        /* ── Status / result count ── */
+        #status-bar {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+            min-height: 1.2em;
+        }
+
+        /* ── Table ── */
+        .table-wrapper {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            padding: 0 1.5rem;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            font-size: 0.88rem;
+        }
+
+        thead {
+            background: #2d4a3e;
+            color: white;
+        }
+        thead th {
+            padding: 0.9rem 1rem;
+            text-align: left;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #eee;
+            transition: background 0.15s;
+        }
+        tbody tr:hover { background: #f0f5f2; }
+        tbody td {
+            padding: 0.75rem 1rem;
+            vertical-align: top;
+            color: #333;
+        }
+
+        /* Loading / empty states */
+        #loading, #no-results {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #888;
+            font-size: 0.95rem;
+            display: none;
+        }
+        #loading.visible, #no-results.visible { display: block; }
+
+        .spinner {
+            display: inline-block;
+            width: 28px; height: 28px;
+            border: 3px solid #ddd;
+            border-top-color: #2d4a3e;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin-bottom: 0.5rem;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Pagination ── */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .pagination button {
+            padding: 0.45rem 0.9rem;
+            border: 1.5px solid #2d4a3e;
+            background: white;
+            color: #2d4a3e;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.15s;
+        }
+        .pagination button:hover,
+        .pagination button.active { background: #2d4a3e; color: white; }
+        .pagination button:disabled { opacity: 0.35; cursor: default; }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+            color: #aaa;
+            border-top: 1px solid #e0dbd5;
+        }
+    </style>
 </head>
 <body>
 
@@ -16,43 +232,45 @@
         </nav>
     </header>
 
-    <section>
-        <h1>Chemical Ingredient Database</h1>
-        <p>Search through the chemical components found in common household cosmetics. <br> (Notes: We'll figure out what to include in the table after the data analysis!)</p>
+    <div class="db-hero">
+        <h1>Ingredient Database</h1>
+        <p>Search cosmetic products and their chemical ingredients. Data sourced from public records.</p>
+    </div>
 
-        <div style="margin-bottom: 2rem;">
-            <input type="text" placeholder="Search by ingredient (e.g., Parabens)..." 
-                   style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
+    <section class="search-section">
+        <div class="search-bar-wrapper">
+            <input type="text" id="search-input" placeholder="Search by product name, brand, ingredient…" />
+            <button id="search-btn">Search</button>
+            <button id="clear-btn">Clear</button>
         </div>
-
-        <table style="width: 100%; border-collapse: collapse;">
-            <thead>
-                <tr style="background: #e8f5e9; text-align: left;">
-                    <th style="padding: 12px; border: 1px solid #ddd;">Product Name</th>
-                    <th style="padding: 12px; border: 1px solid #ddd;">Chemical Name</th>
-                    <th style="padding: 12px; border: 1px solid #ddd;">Common Use</th>
-                    <th style="padding: 12px; border: 1px solid #ddd;">Risk Level</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #ddd;">Moisturizing Lotion</td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">xxxxxx</td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">xxxxxx</td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">High</td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #ddd;">xxxxxx</td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">xxxxxx</td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">xxxxxx</td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">xxxxxx</td>
-                </tr>
-                </tbody>
-        </table>
+        <div class="filter-row">
+            <label for="column-select">Search in column:</label>
+            <select id="column-select">
+                <option value="all">All columns</option>
+                <!-- More options added dynamically by JS -->
+            </select>
+        </div>
+        <div id="status-bar"></div>
     </section>
+
+    <div class="table-wrapper">
+        <div id="loading">
+            <div class="spinner"></div>
+            <p>Loading data…</p>
+        </div>
+        <div id="no-results">No results found. Try a different search term.</div>
+        <table id="data-table" style="display:none;">
+            <thead id="table-head"></thead>
+            <tbody id="table-body"></tbody>
+        </table>
+        <div class="pagination" id="pagination"></div>
+    </div>
 
     <footer>
         <p>2026 Building News Applications | Stanford Journalism Program</p>
     </footer>
+
+    <script src="config.js"></script>
+    <script src="js/database.js"></script>
 </body>
 </html>
