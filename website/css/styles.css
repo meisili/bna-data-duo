@@ -1,86 +1,364 @@
+/* ============================================================
+   styles.css  —  The Chemistry of Beauty
+   Shared across index.html, database.html, about.html
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+    --green-dark:   #2d4a3e;
+    --green-mid:    #3d6b58;
+    --green-light:  #f0f5f2;
+    --cream:        #f5f0eb;
+    --cream-dark:   #ede7df;
+    --text-dark:    #1a1a1a;
+    --text-mid:     #444;
+    --text-light:   #777;
+    --accent:       #b5804a;
+    --white:        #ffffff;
+    --shadow-sm:    0 2px 8px rgba(0,0,0,0.07);
+    --shadow-md:    0 4px 20px rgba(0,0,0,0.10);
+    --radius:       8px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
 body {
-    font-family: 'Georgia', serif; /* We can think more about font choices later */
-    line-height: 1.6;
-    margin: 0;
-    color: #333;
-    background-color: #f9fbf9; /* can be changed later as well */
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.7;
 }
 
-h1, h2, h3 {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: #2d4a3e; /* Deep forest green */
-}
+img { max-width: 100%; display: block; }
 
-/* Navigation Bar */
+a { color: inherit; }
+
+/* ── Navbar ── */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-}
-
-/* "Sticky" class for pages */
-.nav-fixed {
+    padding: 1rem 2.5rem;
+    background: var(--green-dark);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
 
-.nav-links a {
-    margin-left: 20px;
+.navbar .logo {
+    color: var(--white);
     text-decoration: none;
-    color: #2d4a3e;
-    font-weight: bold;
-    font-family: sans-serif;
-    font-size: 0.9rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
 }
 
-/* Ensure dropdown can position relative to nav container */
-.nav-links {
-    position: relative;
+.navbar .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.88rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.2s;
 }
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active { color: var(--white); }
 
-/* Content Sections */
-section {
-    padding: 4rem 10%;
-    max-width: 900px;
-    margin: auto;
-}
-
-.title-chunk {
-    text-align: center;
-    padding: 6rem 10%;
-    background: linear-gradient(to bottom, #e8f5e9, #f9fbf9);
-}
-
-.placeholder-box {
-    background: #e0e0e0;
-    border: 2px dashed #999;
-    padding: 100px 20px;
-    text-align: center;
-    border-radius: 8px;
-    margin: 2rem 0;
-}
-
+/* ── Footer ── */
 footer {
     text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--cream-dark);
+    margin-top: 4rem;
+    letter-spacing: 0.03em;
+}
+
+/* ── Hero / Title chunks ── */
+.page-hero {
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+}
+.page-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+.page-hero p {
+    opacity: 0.72;
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* ── Content sections ── */
+.content-section {
+    max-width: 820px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+.content-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--green-dark);
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--cream-dark);
+}
+.content-section p { color: var(--text-mid); margin-bottom: 0.9rem; }
+
+/* ── Placeholder boxes ── */
+.placeholder-box {
+    background: var(--green-light);
+    border: 2px dashed var(--green-mid);
+    border-radius: var(--radius);
     padding: 2rem;
-    font-size: 0.8rem;
-    border-top: 1px solid #ddd;
-    background: #eee;
+    text-align: center;
+    margin: 1.5rem 0;
+    color: var(--green-mid);
+}
+.placeholder-box strong { display: block; margin-bottom: 0.4rem; }
+
+/* ── CTA button ── */
+.cta-btn {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background: var(--green-dark);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.15s;
+}
+.cta-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+/* ── Methodology box ── */
+.methodology-box {
+    background: var(--green-light);
+    border-radius: var(--radius);
+    padding: 2rem 2.2rem;
+    margin: 1.5rem 0;
+}
+.methodology-box p { margin-bottom: 0.75rem; }
+.methodology-box ul {
+    list-style: none;
+    padding: 0;
+}
+.methodology-box ul li {
+    padding: 0.3rem 0 0.3rem 1.2rem;
+    position: relative;
+    color: var(--text-mid);
+}
+.methodology-box ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--green-mid);
+    font-size: 0.85rem;
 }
 
-/* Logo link styling: no underline and same color as nav links */
-.logo {
-    text-decoration: none;
-    color: #2d4a3e;
-    font-weight: bold;
-    font-family: sans-serif;
+/* ── Team cards ── */
+.team-grid {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+.team-member {
+    flex: 1;
+    min-width: 200px;
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border-top: 3px solid var(--green-dark);
+}
+.team-member h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--green-dark);
+    margin-bottom: 0.4rem;
+}
+.team-member p { font-size: 0.88rem; color: var(--text-mid); }
+
+/* ── Sources list ── */
+.sources-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+.sources-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--cream-dark);
+    color: var(--text-mid);
+    font-size: 0.9rem;
+}
+.sources-list li a { color: var(--green-mid); text-decoration: underline; }
+
+/* ── Database page: search ── */
+.search-section {
+    max-width: 920px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+.search-bar-wrapper {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+#search-input {
+    flex: 1;
+    padding: 0.85rem 1.2rem;
+    border: 2px solid var(--green-dark);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+#search-input:focus { box-shadow: 0 0 0 3px rgba(45,74,62,0.15); }
+
+#search-btn {
+    padding: 0.85rem 1.8rem;
+    background: var(--green-dark);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+}
+#search-btn:hover { background: var(--green-mid); }
+
+#clear-btn {
+    padding: 0.85rem 1.2rem;
+    background: transparent;
+    color: var(--green-dark);
+    border: 2px solid var(--green-dark);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    display: none;
+}
+#clear-btn:hover { background: var(--green-dark); color: var(--white); }
+
+.filter-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+.filter-row label { font-size: 0.85rem; color: var(--text-light); }
+#column-select {
+    padding: 0.5rem 0.9rem;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    background: var(--white);
+    cursor: pointer;
 }
 
-.logo:hover {
-    text-decoration: none;
-    color: #2d4a3e;
+#status-bar {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+    min-height: 1.2em;
+}
+
+/* ── Database table ── */
+.table-wrapper {
+    max-width: 920px;
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    font-size: 0.88rem;
+}
+thead { background: var(--green-dark); color: var(--white); }
+thead th {
+    padding: 0.9rem 1rem;
+    text-align: left;
+    font-weight: 500;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+}
+tbody tr { border-bottom: 1px solid #eee; transition: background 0.15s; }
+tbody tr:hover { background: var(--green-light); }
+tbody td { padding: 0.75rem 1rem; vertical-align: top; color: var(--text-mid); }
+
+#loading, #no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    display: none;
+}
+#loading.visible, #no-results.visible { display: block; }
+
+.spinner {
+    display: inline-block;
+    width: 28px; height: 28px;
+    border: 3px solid #ddd;
+    border-top-color: var(--green-dark);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin-bottom: 0.5rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+.pagination button {
+    padding: 0.45rem 0.9rem;
+    border: 1.5px solid var(--green-dark);
+    background: var(--white);
+    color: var(--green-dark);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    transition: all 0.15s;
+}
+.pagination button:hover,
+.pagination button.active { background: var(--green-dark); color: var(--white); }
+.pagination button:disabled { opacity: 0.35; cursor: default; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+    .navbar { padding: 1rem 1.2rem; }
+    .navbar .nav-links a { margin-left: 1rem; }
+    .search-bar-wrapper { flex-direction: column; }
+    .team-grid { flex-direction: column; }
+    .page-hero { padding: 2.5rem 1.2rem; }
 }
