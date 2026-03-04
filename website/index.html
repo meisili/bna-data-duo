@@ -33,11 +33,36 @@
         <section class="content-section" id="narrative">
             <h2>Deep Dive: What's Under the Surface?</h2>
             <p>This section will contain the primary long-form narrative — the findings of the investigation, human stories, and the regulatory landscape of the cosmetics industry.</p>
-
-            <div class="placeholder-box">
-                <strong>[DATA VISUALIZATION PLACEHOLDER]</strong>
-                <p>Interactive charts showing chemical concentrations or health impacts.</p>
+            
+            <div class="stats-row">
+                <div class="stat">
+                    <span class="stat-number">1,396</span>
+                    <span class="stat-label">Companies</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4,448</span>
+                    <span class="stat-label">Brands</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">165,503</span>
+                    <span class="stat-label">Products Submitted</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">885</span>
+                    <span class="stat-label">Unique Ingredients</span>
+                </div>
             </div>
+           
+           <div id="waffle-section">
+                <div id="waffle-chart"></div>
+                <div id="waffle-legend"></div>
+            </div>
+
+            <div id="bubble-chart"></div>
+
+            <div id="chart"></div>
+        </div>
+        <div id="hazard-chart"></div>
 
             <p>Further narrative text continues…</p>
         </section>
@@ -53,6 +78,11 @@
     <footer>
         <p>2026 Building News Applications | Stanford Journalism Program</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="js/charts.js"></script>
 
 </body>
 </html>

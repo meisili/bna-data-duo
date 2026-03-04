@@ -362,3 +362,58 @@ tbody td { padding: 0.75rem 1rem; vertical-align: top; color: var(--text-mid); }
     .team-grid { flex-direction: column; }
     .page-hero { padding: 2.5rem 1.2rem; }
 }
+
+/* ── Vega-Lite charts ── */
+.vega-embed {
+    background: transparent !important;
+}
+.vega-embed canvas,
+.vega-embed svg {
+    background: transparent !important;
+}
+
+/* ── Stats row ── */
+.stats-row {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+.stat {
+    flex: 1;
+    min-width: 120px;
+    background: var(--green-dark);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 1.2rem 1rem;
+    text-align: center;
+}
+.stat-number {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+.stat-label {
+    display: block;
+    font-size: 0.78rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ── Waffle Chart ── */
+#waffle-section {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+    margin: 2rem 0;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+#waffle-chart {
+    align-self: flex-start;
+}
+
