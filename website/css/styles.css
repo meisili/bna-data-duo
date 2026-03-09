@@ -417,3 +417,50 @@ tbody td { padding: 0.75rem 1rem; vertical-align: top; color: var(--text-mid); }
     align-self: flex-start;
 }
 
+#bubble-chart {
+    margin-bottom: 3rem;
+}
+
+#chart {
+    margin-bottom: 3rem;
+}
+
+/* ── Scrollytelling ── */
+.scrolly-container {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 2rem;
+    align-items: flex-start;
+    margin: 2rem 0;
+}
+
+.scrolly-sticky {
+    position: sticky;
+    top: 80px;
+    width: 65%;
+    flex-shrink: 0;
+}
+
+.scrolly-steps {
+    width: 35%;
+    padding-right: 1rem;
+}
+
+.scrolly-step {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.scrolly-step p {
+    background: var(--cream);
+    padding: 1.5rem;
+    border-left: 3px solid var(--green-dark);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+    box-shadow: var(--shadow-sm);
+}

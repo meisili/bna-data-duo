@@ -1,52 +1,57 @@
 // ── Line Chart ────────────────────────────────────────────
-const spec = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": ["New Legislation Requiring Fragrance Reporting Skyrockets Harmful Product Submissions"],
-  "width": 700,
-  "height": 350,
-  "config": {
-    "background": "transparent",
-    "view": { "stroke": "transparent", "background": "transparent" },
-    "axis": { "grid": false },
-    "title": {
-      "font": "Playfair Display",
-      "fontSize": 18,
-      "fontWeight": 600,
-      "color": "#1a1a1a",
-      "offset": 20
-    }
-  },
-  "data": { "url": "charts/prodsbyyear.csv" },
-  "layer": [
-    {
-      "mark": { "type": "rect", "color": "#2d4a3e", "opacity": 0.15 },
-      "transform": [{"filter": "datum['Product Submitted Year'] == 2022"}],
-      "encoding": {
-        "x": { "field": "Product Submitted Year", "type": "ordinal" }
+function renderLineChart(highlightYear) {
+  const spec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": ["New Legislation Requiring Fragrance Reporting Skyrockets Harmful Product Submissions"],
+    "width": 700,
+    "height": 350,
+    "config": {
+      "background": "transparent",
+      "view": { "stroke": "transparent", "background": "transparent" },
+      "axis": { "grid": false },
+      "title": {
+        "font": "Playfair Display",
+        "fontSize": 18,
+        "fontWeight": 600,
+        "color": "#1a1a1a",
+        "offset": 20
       }
     },
-    {
-      "mark": { "type": "line", "color": "#2d4a3e" },
-      "encoding": {
-        "x": {
-          "field": "Product Submitted Year",
-          "type": "ordinal",
-          "axis": { "labelAngle": 0, "ticks": false, "labelPadding": 10 }
-        },
-        "y": {
-          "field": "count",
-          "type": "quantitative",
-          "axis": { "tickCount": 5 }
-        },
-        "tooltip": [
-          { "field": "count", "type": "quantitative" }
-        ]
+    "data": { "url": "charts/prodsbyyear.csv" },
+    "layer": [
+      {
+        "mark": { "type": "rect", "color": "#2d4a3e", "opacity": 0.15 },
+        "transform": [{"filter": `datum['Product Submitted Year'] == ${highlightYear}`}],
+        "encoding": {
+          "x": { "field": "Product Submitted Year", "type": "ordinal" }
+        }
+      },
+      {
+        "mark": { "type": "line", "color": "#2d4a3e" },
+        "encoding": {
+          "x": {
+            "field": "Product Submitted Year",
+            "type": "ordinal",
+            "axis": { "labelAngle": 0, "ticks": false, "labelPadding": 10 }
+          },
+          "y": {
+            "field": "count",
+            "type": "quantitative",
+            "axis": { "tickCount": 5 }
+          },
+          "tooltip": [
+            { "field": "count", "type": "quantitative" }
+          ]
+        }
       }
-    }
-  ]
+    ]
+  }
+  vegaEmbed("#chart", spec, { "actions": false })
 }
 
-vegaEmbed("#chart", spec, { "actions": false })
+// Render with 2009 highlighted by default
+renderLineChart(2009)
+window.renderLineChart = renderLineChart
 
 // ── Waffle Chart ──────────────────────────────────────────
 function buildWaffle(data) {
@@ -156,7 +161,7 @@ vegaEmbed("#bubble-chart", bubbleSpec, { "actions": false })
 // ── Hazard by Year Chart ──────────────────────────────────
 const hazardSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": ["Hazardous Product Submissions by Type Over Time"],
+  "title": ["Products Reported by Hazard Over Time"],
   "width": 700,
   "height": 400,
   "config": {
