@@ -8,7 +8,7 @@
 <body>
 
     <header class="navbar">
-        <a class="logo" href="index.html"><strong>TITLE PLACEHOLDER</strong></a>
+        <a class="logo" href="index.html"><strong>A Look Into the Harmful Ingredients in Your Cosmetics</strong></a>
         <nav class="nav-links">
             <a href="index.html" class="active">Home</a>
             <a href="database.html">Database</a>
@@ -25,21 +25,63 @@
         <section class="content-section" id="interactive-cart">
             <h2>The Cost of Your Routine</h2>
             <div class="placeholder-box">
-                <strong>[PLACEHOLDER: Animated/Interactive Shopping Cart]</strong>
-                <p>Users will select products here to calculate chemical exposure. Will figure out the design/interactivity later.</p>
+                <p>California is the only state to require cosmetic companies to report harmful ingredients in their products. Many of these ingredients, like formaldehyde, are known to cause cancer or other harm with repeated use. Formaldehyde has been in the news for the past several years because of its toxic traits, but other ingredients are less recognizable. </p>
+                <p><i>Scroll down to learn more about the makeup you use every day.</i></p>
             </div>
         </section>
 
         <section class="content-section" id="narrative">
             <h2>Deep Dive: What's Under the Surface?</h2>
-            <p>This section will contain the primary long-form narrative — the findings of the investigation, human stories, and the regulatory landscape of the cosmetics industry.</p>
-
-            <div class="placeholder-box">
-                <strong>[DATA VISUALIZATION PLACEHOLDER]</strong>
-                <p>Interactive charts showing chemical concentrations or health impacts.</p>
+            <p>Since 2005, when the California Safe Cosmetics Act was passed into state law, over 165,000 products have been submitted to the government. 14% of these products reported have since been discontinued.</p>
+            
+            <div class="stats-row">
+                <div class="stat">
+                    <span class="stat-number">1,396</span>
+                    <span class="stat-label">Companies</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4,448</span>
+                    <span class="stat-label">Brands</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">165,503</span>
+                    <span class="stat-label">Products Submitted</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">885</span>
+                    <span class="stat-label">Unique Ingredients</span>
+                </div>
+            </div>
+           
+           <div id="waffle-section">
+                <div id="waffle-chart"></div>
+                <div id="waffle-legend"></div>
             </div>
 
-            <p>Further narrative text continues…</p>
+            <p>Most of the products reported to California Department of Public Health were lipsticks, foundations, & eye shadows.</p> 
+
+            <div id="bubble-chart"></div>
+
+            <p>The number of products reported increased dramatically by nearly <strong style="color: red;">350%</strong> after California required fragrance companies to report hazardous ingredients.</p> 
+
+            <!-- Scrollytelling section -->
+            <div class="scrolly-container">
+                <div class="scrolly-sticky">
+                    <div id="chart"></div>
+                </div>
+                <div class="scrolly-steps">
+                    <div class="scrolly-step" data-step="1" data-year="2009">
+                        <p>Since 2009, California has required cosmetic companies to report harmful ingredients in their products.</p>
+                    </div>
+                    <div class="scrolly-step" data-step="2" data-year="2022">
+                        <p>In 2022, California's Fragrance Ingredient Right to Know Act required companies to disclose fragrance ingredients for the first time — causing a dramatic surge in product submissions.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <p>In the last few years, companies have increasingly reported ingredients that cause reproductive, endocrine, neurological harm and more. <strong>Use the filter below</strong> to pick a hazard type and look at yearly trends in cosmetic companies' use of certain harmful ingredient types.</p>
+        <div id="hazard-chart"></div>
+
         </section>
 
         <section class="content-section" id="cta" style="text-align: center; padding-top: 1rem; padding-bottom: 3rem;">
@@ -53,6 +95,12 @@
     <footer>
         <p>2026 Building News Applications | Stanford Journalism Program</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/animations.js"></script>
 
 </body>
 </html>
