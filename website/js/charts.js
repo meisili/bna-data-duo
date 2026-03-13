@@ -159,9 +159,33 @@ const bubbleSpec = {
 vegaEmbed("#bubble-chart", bubbleSpec, { "actions": false })
 
 // ── Hazard by Year Chart ──────────────────────────────────
+const hazardDescriptions = {
+  "Carcinogenicity": "can cause cancer",
+  "Fragrance Allergen": "can trigger allergic reactions from fragrance",
+  "Reproductive Toxicity": "can harm reproductive health or fertility",
+  "Developmental Toxicity": "can harm a baby's development during pregnancy",
+  "Endocrine Toxicity": "can disrupt hormones",
+  "Neurotoxicity": "can damage the nervous system or brain",
+  "Genotoxicity": "can damage DNA",
+  "Immunotoxicity": "can weaken the immune system",
+  "Bioaccumulation": "builds up in the body over time",
+  "Environmental Persistence": "stays in the environment for a long time",
+  "Environmental Toxicity": "harmful to wildlife and ecosystems",
+  "Ocular Toxicity": "can irritate or damage eyes",
+  "Respiratory Toxicity": "can irritate or damage lungs and airways",
+  "Dermatotoxicity": "can irritate or damage skin",
+  "Hematotoxicity": "can damage blood cells",
+  "Neurodevelopmental Toxicity": "can impair brain development in children",
+  "Cardiovascular Toxicity": "can harm the heart or blood vessels",
+  "Musculoskeletal Toxicity": "can damage muscles, bones, or joints",
+  "Hepatotoxicity and Digestive System Toxicity": "can harm the liver or digestive system",
+  "Nephrotoxicity and Other Toxicity Types": "can damage kidneys",
+  "Other Toxicological Hazard Traits": "other known health hazards",
+  "Hazard Trait Undefined": "hazard type not yet classified"
+};
+
 const hazardSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": ["Products Reported by Hazard Over Time"],
   "width": 700,
   "height": 400,
   "config": {
@@ -213,4 +237,14 @@ const hazardSpec = {
     ]
  }
 };
-vegaEmbed("#hazard-chart", hazardSpec, { "actions": false })
+vegaEmbed("#hazard-chart", hazardSpec, { "actions": false }).then(result => {
+  result.view.addSignalListener("hazardSelect", (name, value) => {
+    const subtitle = document.getElementById("hazard-subtitle");
+    if (value && hazardDescriptions[value]) {
+      subtitle.innerHTML = `<span>${value}</span>  |  <em>${hazardDescriptions[value]}</em>`;
+      subtitle.style.display = "block";
+    } else {
+      subtitle.style.display = "none";
+    }
+  });
+});
