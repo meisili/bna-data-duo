@@ -470,3 +470,11 @@ tbody td { padding: 0.75rem 1rem; vertical-align: top; color: var(--text-mid); }
     flex-direction: column;
     align-items: center;
 }
+
+.section-subheader {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-bottom: 1rem;
+}
