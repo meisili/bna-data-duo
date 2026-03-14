@@ -204,39 +204,47 @@ const hazardSpec = {
   "params": [{
     "name": "hazardSelect",
     "bind": {
-        "input": "select",
-        "options": [null,"Carcinogenicity","Fragrance Allergen","Reproductive Toxicity","Developmental Toxicity","Endocrine Toxicity","Neurotoxicity","Genotoxicity","Immunotoxicity","Bioaccumulation","Environmental Persistence","Environmental Toxicity","Ocular Toxicity","Respiratory Toxicity","Dermatotoxicity","Hematotoxicity","Neurodevelopmental Toxicity","Cardiovascular Toxicity","Musculoskeletal Toxicity","Hepatotoxicity and Digestive System Toxicity","Nephrotoxicity and Other Toxicity Types","Other Toxicological Hazard Traits","Hazard Trait Undefined"],
-        "labels": ["All Hazard Types","Carcinogenicity","Fragrance Allergen","Reproductive Toxicity","Developmental Toxicity","Endocrine Toxicity","Neurotoxicity","Genotoxicity","Immunotoxicity","Bioaccumulation","Environmental Persistence","Environmental Toxicity","Ocular Toxicity","Respiratory Toxicity","Dermatotoxicity","Hematotoxicity","Neurodevelopmental Toxicity","Cardiovascular Toxicity","Musculoskeletal Toxicity","Hepatotoxicity and Digestive System Toxicity","Nephrotoxicity and Other Toxicity Types","Other Toxicological Hazard Traits","Hazard Trait Undefined"],
-        "name": "Filter by Hazard Type: "
+      "input": "select",
+      "options": [null,"Carcinogenicity","Fragrance Allergen","Reproductive Toxicity","Developmental Toxicity","Endocrine Toxicity","Neurotoxicity","Genotoxicity","Immunotoxicity","Bioaccumulation","Environmental Persistence","Environmental Toxicity","Ocular Toxicity","Respiratory Toxicity","Dermatotoxicity","Hematotoxicity","Neurodevelopmental Toxicity","Cardiovascular Toxicity","Musculoskeletal Toxicity","Hepatotoxicity and Digestive System Toxicity","Nephrotoxicity and Other Toxicity Types","Other Toxicological Hazard Traits","Hazard Trait Undefined"],
+      "labels": ["All Hazard Types","Carcinogenicity","Fragrance Allergen","Reproductive Toxicity","Developmental Toxicity","Endocrine Toxicity","Neurotoxicity","Genotoxicity","Immunotoxicity","Bioaccumulation","Environmental Persistence","Environmental Toxicity","Ocular Toxicity","Respiratory Toxicity","Dermatotoxicity","Hematotoxicity","Neurodevelopmental Toxicity","Cardiovascular Toxicity","Musculoskeletal Toxicity","Hepatotoxicity and Digestive System Toxicity","Nephrotoxicity and Other Toxicity Types","Other Toxicological Hazard Traits","Hazard Trait Undefined"],
+      "name": "Filter by Hazard Type: "
     }
-    }],
-    "transform": [{
-        "filter": "hazardSelect == null || hazardSelect == '' || datum['Hazard Traits'] == hazardSelect"
-    }],
-    "mark": "bar",
-    "encoding": {
+  }],
+  "transform": [
+    {
+      "filter": "hazardSelect == null || hazardSelect == '' || datum['Hazard Traits'] == hazardSelect"
+    },
+    {
+      "calculate": "{'Carcinogenicity': 'Can cause cancer', 'Fragrance Allergen': 'Can trigger allergic reactions from fragrance', 'Reproductive Toxicity': 'Can harm reproductive health or fertility', 'Developmental Toxicity': 'Can harm a baby development during pregnancy', 'Endocrine Toxicity': 'Can disrupt hormones', 'Neurotoxicity': 'Can damage the nervous system or brain', 'Genotoxicity': 'Can damage DNA', 'Immunotoxicity': 'Can weaken the immune system', 'Bioaccumulation': 'Builds up in the body over time', 'Environmental Persistence': 'Stays in the environment for a long time', 'Environmental Toxicity': 'Harmful to wildlife and ecosystems', 'Ocular Toxicity': 'Can irritate or damage eyes', 'Respiratory Toxicity': 'Can irritate or damage lungs and airways', 'Dermatotoxicity': 'Can irritate or damage skin', 'Hematotoxicity': 'Can damage blood cells', 'Neurodevelopmental Toxicity': 'Can impair brain development in children', 'Cardiovascular Toxicity': 'Can harm the heart or blood vessels', 'Musculoskeletal Toxicity': 'Can damage muscles, bones, or joints', 'Hepatotoxicity and Digestive System Toxicity': 'Can harm the liver or digestive system', 'Nephrotoxicity and Other Toxicity Types': 'Can damage kidneys', 'Other Toxicological Hazard Traits': 'Other known health hazards', 'Hazard Trait Undefined': 'Hazard type not yet classified'}[datum['Hazard Traits']]",
+      "as": "Description"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
     "x": {
-        "field": "Product Submitted Year",
-        "type": "ordinal",
-        "axis": { "labelAngle": 0, "ticks": false, "labelPadding": 10, "title": "Year" }
+      "field": "Product Submitted Year",
+      "type": "ordinal",
+      "axis": { "labelAngle": 0, "ticks": false, "labelPadding": 10, "title": "Year" }
     },
     "y": {
-        "field": "count",
-        "type": "quantitative",
-        "axis": { "tickCount": 5, "title": "Products Reported" }
+      "field": "count",
+      "type": "quantitative",
+      "axis": { "tickCount": 5, "title": "Products Reported" }
     },
     "color": {
-        "field": "Hazard Traits",
-        "type": "nominal",
-        "scale": { "scheme": "tableau20" }
+      "field": "Hazard Traits",
+      "type": "nominal",
+      "scale": { "scheme": "tableau20" }
     },
     "tooltip": [
-        { "field": "Hazard Traits", "type": "nominal", "title": "Hazard Type" },
-        { "field": "Product Submitted Year", "type": "ordinal", "title": "Year" },
-        { "field": "count", "type": "quantitative", "title": "Products" }
+      { "field": "Hazard Traits", "type": "nominal", "title": "Hazard Type" },
+      { "field": "Description", "type": "nominal", "title": "What It Means" },
+      { "field": "Product Submitted Year", "type": "ordinal", "title": "Year" },
+      { "field": "count", "type": "quantitative", "title": "Products" }
     ]
- }
+  }
 };
+
 vegaEmbed("#hazard-chart", hazardSpec, { "actions": false }).then(result => {
   result.view.addSignalListener("hazardSelect", (name, value) => {
     const subtitle = document.getElementById("hazard-subtitle");
