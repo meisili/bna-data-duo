@@ -125,7 +125,7 @@ footer {
     border: 2px dashed var(--green-mid);
     border-radius: var(--radius);
     padding: 2rem;
-    text-align: center;
+    text-align: left;
     margin: 1.5rem 0;
     color: var(--green-mid);
 }
@@ -477,4 +477,13 @@ tbody td { padding: 0.75rem 1rem; vertical-align: top; color: var(--text-mid); }
     font-weight: 700;
     color: var(--green-dark);
     margin-bottom: 1rem;
+}
+
+.placeholder-box ul {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.placeholder-box ul li:last-child {
+    margin-bottom: 1.5rem;
 }
