@@ -1,0 +1,2 @@
+KEY_1 = "yMgwnlBsql8axIBF9rnaf697f5tLlc9S2KYyO2P9"
+KEY_2 = "AHFKINXhLc4MAajui0VAQ8wtBbf5iHHq79weice5'"
