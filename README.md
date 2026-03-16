@@ -1,6 +1,6 @@
 # Chemicals in Cosmetics
 
-__Live project URL:__
+__Live project URL:__ https://chemistry-of-beauty.netlify.app/
 
 We relied on the database content and reportable ingredients list from the California Department of Public Health's [California Safe Cosmetic Program Product Database](https://cscpsearch.cdph.ca.gov/search/publicsearch). 
 
