@@ -5,31 +5,25 @@
 
 const TABLE_NAME    = "master-table";
 const ROWS_PER_PAGE = 50;
-
 const HIDDEN_COLUMNS = ["ID"];
-
-const COLUMN_LABELS = {
-    "Ingredient Name_1": "Ingredient Name (2)"
-};
+const COLUMN_LABELS = {};
 
 let currentPage    = 1;
 let totalRows      = 0;
 let currentQuery   = "";
-let currentColumn  = "all";
 let allColumns     = [];
 let visibleColumns = [];
 
-const searchInput  = document.getElementById("search-input");
-const searchBtn    = document.getElementById("search-btn");
-const clearBtn     = document.getElementById("clear-btn");
-const columnSelect = document.getElementById("column-select");
-const statusBar    = document.getElementById("status-bar");
-const loading      = document.getElementById("loading");
-const noResults    = document.getElementById("no-results");
-const dataTable    = document.getElementById("data-table");
-const tableHead    = document.getElementById("table-head");
-const tableBody    = document.getElementById("table-body");
-const pagination   = document.getElementById("pagination");
+const searchInput = document.getElementById("search-input");
+const searchBtn   = document.getElementById("search-btn");
+const clearBtn    = document.getElementById("clear-btn");
+const statusBar   = document.getElementById("status-bar");
+const loading     = document.getElementById("loading");
+const noResults   = document.getElementById("no-results");
+const dataTable   = document.getElementById("data-table");
+const tableHead   = document.getElementById("table-head");
+const tableBody   = document.getElementById("table-body");
+const pagination  = document.getElementById("pagination");
 
 function getLabel(col) {
     return COLUMN_LABELS[col] || col;
@@ -47,9 +41,9 @@ function showLoading(yes) {
 async function initColumns() {
     try {
         const url = `${SUPABASE_URL}/rest/v1/${encodeURIComponent(TABLE_NAME)}?limit=1`;
-        const res  = await fetch(url, {
+        const res = await fetch(url, {
             headers: {
-                "apikey":         SUPABASE_ANON_KEY,
+                "apikey":        SUPABASE_ANON_KEY,
                 "Authorization": `Bearer ${SUPABASE_ANON_KEY}`
             }
         });
@@ -59,33 +53,24 @@ async function initColumns() {
         allColumns     = Object.keys(data[0]);
         visibleColumns = allColumns.filter(col => !HIDDEN_COLUMNS.includes(col));
 
-        // Table header
         tableHead.innerHTML = `<tr>${visibleColumns.map(c =>
             `<th>${getLabel(c)}</th>`
         ).join("")}</tr>`;
 
-        // Dropdown
-        columnSelect.innerHTML = `<option value="all">All columns</option>`;
-        visibleColumns.forEach(col => {
-            const opt       = document.createElement("option");
-            opt.value       = col;
-            opt.textContent = getLabel(col);
-            columnSelect.appendChild(opt);
-        });
     } catch (err) {
         console.error("initColumns error:", err);
     }
 }
 
 // ── Step 2: fetch data ────────────────────────────────────────
-async function fetchData(query, column, page) {
+async function fetchData(query, page) {
     showLoading(true);
 
     const from = (page - 1) * ROWS_PER_PAGE;
     const to   = from + ROWS_PER_PAGE - 1;
 
     const headers = {
-        "apikey":         SUPABASE_ANON_KEY,
+        "apikey":        SUPABASE_ANON_KEY,
         "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
         "Content-Type":  "application/json",
         "Prefer":        "count=exact",
@@ -96,28 +81,22 @@ async function fetchData(query, column, page) {
     try {
         let response;
 
-        if (query.trim() !== "" && column === "all") {
-            // ── Use the SQL function for all-column search ──
+        if (query.trim() !== "") {
+            // ── Use the SQL RPC function for full all-column search ──
             response = await fetch(
                 `${SUPABASE_URL}/rest/v1/rpc/search_master_table?limit=${ROWS_PER_PAGE}&offset=${from}`,
                 {
-                    method:  "POST",
+                    method: "POST",
                     headers,
-                    body:    JSON.stringify({ search_term: query })
+                    body:   JSON.stringify({ search_term: query })
                 }
             );
-
         } else {
-            // ── Single column search OR load all rows ──
-            let url = `${SUPABASE_URL}/rest/v1/${encodeURIComponent(TABLE_NAME)}?`;
-            if (query.trim() !== "" && column !== "all") {
-                url += `${encodeURIComponent(column)}=ilike.*${encodeURIComponent(query)}*&`;
-            }
-            url += `limit=${ROWS_PER_PAGE}&offset=${from}`;
+            // ── No query: just load all rows paginated ──
+            const url = `${SUPABASE_URL}/rest/v1/${encodeURIComponent(TABLE_NAME)}?limit=${ROWS_PER_PAGE}&offset=${from}`;
             response = await fetch(url, { headers });
         }
 
-        // Read total count from response header
         const rangeHeader = response.headers.get("Content-Range");
         if (rangeHeader) {
             const total = rangeHeader.split("/")[1];
@@ -193,15 +172,14 @@ function goToPage(page) {
 }
 
 async function loadData() {
-    const data = await fetchData(currentQuery, currentColumn, currentPage);
+    const data = await fetchData(currentQuery, currentPage);
     renderTable(data);
 }
 
 // ── Events ────────────────────────────────────────────────────
 searchBtn.addEventListener("click", () => {
-    currentQuery   = searchInput.value.trim();
-    currentColumn  = columnSelect.value;
-    currentPage    = 1;
+    currentQuery  = searchInput.value.trim();
+    currentPage   = 1;
     clearBtn.style.display = currentQuery ? "inline-block" : "none";
     loadData();
 });
@@ -216,11 +194,6 @@ clearBtn.addEventListener("click", () => {
 
 searchInput.addEventListener("keydown", e => {
     if (e.key === "Enter") searchBtn.click();
-});
-
-columnSelect.addEventListener("change", () => {
-    currentColumn = columnSelect.value;
-    if (currentQuery) { currentPage = 1; loadData(); }
 });
 
 // ── Init ──────────────────────────────────────────────────────
