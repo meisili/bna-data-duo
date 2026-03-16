@@ -63,3 +63,6 @@ GRANT EXECUTE ON FUNCTION search_master_table(text) TO anon;
 The frontend connects to Supabase via its REST API using a public anonymous key. Supabase credentials are stored in a local `config.js` file (excluded from the repository via `.gitignore`). A `config.example.js` template is included for reference.
 
 When a user types a search term, `js/database.js` sends a `POST` request to the `search_master_table` RPC endpoint. Results are returned as JSON and rendered in a paginated table (50 rows per page). When no search term is entered, the full table is loaded with standard pagination.
+
+## License
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
