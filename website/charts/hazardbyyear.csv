@@ -1,0 +1,347 @@
+Product Submitted Year,Hazard Traits,count
+2009,Bioaccumulation,14
+2009,Carcinogenicity,22266
+2009,Cardiovascular Toxicity,52
+2009,Dermatotoxicity,50
+2009,Developmental Toxicity,1248
+2009,Endocrine Toxicity,18
+2009,Environmental Persistence,14
+2009,Environmental Toxicity,140
+2009,Fragrance Allergen,100
+2009,Genotoxicity,24
+2009,Hazard Trait Undefined,259
+2009,Hematotoxicity,44
+2009,Hepatotoxicity and Digestive System Toxicity,140
+2009,Immunotoxicity,47
+2009,Musculoskeletal Toxicity,1
+2009,Nephrotoxicity and Other Toxicity to the Urinary System,37
+2009,Neurodevelopmental Toxicity,13
+2009,Neurotoxicity,161
+2009,Ocular Toxicity,132
+2009,Other Toxicological Hazard Traits,28
+2009,Reproductive Toxicity,115
+2009,Respiratory Toxicity,335
+2010,Bioaccumulation,21
+2010,Carcinogenicity,10825
+2010,Cardiovascular Toxicity,32
+2010,Dermatotoxicity,31
+2010,Developmental Toxicity,846
+2010,Endocrine Toxicity,31
+2010,Environmental Persistence,21
+2010,Environmental Toxicity,52
+2010,Fragrance Allergen,60
+2010,Genotoxicity,3
+2010,Hazard Trait Undefined,195
+2010,Hematotoxicity,33
+2010,Hepatotoxicity and Digestive System Toxicity,119
+2010,Immunotoxicity,49
+2010,Musculoskeletal Toxicity,1
+2010,Nephrotoxicity and Other Toxicity to the Urinary System,32
+2010,Neurotoxicity,128
+2010,Ocular Toxicity,91
+2010,Other Toxicological Hazard Traits,8
+2010,Reproductive Toxicity,53
+2010,Respiratory Toxicity,179
+2011,Carcinogenicity,3252
+2011,Dermatotoxicity,1
+2011,Developmental Toxicity,466
+2011,Environmental Toxicity,3
+2011,Fragrance Allergen,3
+2011,Hazard Trait Undefined,48
+2011,Hematotoxicity,2
+2011,Hepatotoxicity and Digestive System Toxicity,19
+2011,Immunotoxicity,2
+2011,Neurotoxicity,20
+2011,Ocular Toxicity,20
+2011,Other Toxicological Hazard Traits,2
+2011,Respiratory Toxicity,45
+2012,Carcinogenicity,2741
+2012,Cardiovascular Toxicity,8
+2012,Developmental Toxicity,97
+2012,Endocrine Toxicity,3
+2012,Environmental Toxicity,13
+2012,Fragrance Allergen,14
+2012,Hazard Trait Undefined,185
+2012,Hematotoxicity,15
+2012,Hepatotoxicity and Digestive System Toxicity,15
+2012,Immunotoxicity,3
+2012,Nephrotoxicity and Other Toxicity to the Urinary System,7
+2012,Neurotoxicity,15
+2012,Ocular Toxicity,15
+2012,Other Toxicological Hazard Traits,3
+2012,Reproductive Toxicity,3
+2012,Respiratory Toxicity,70
+2013,Bioaccumulation,1
+2013,Carcinogenicity,4359
+2013,Cardiovascular Toxicity,3
+2013,Developmental Toxicity,736
+2013,Environmental Persistence,1
+2013,Environmental Toxicity,29
+2013,Fragrance Allergen,35
+2013,Hazard Trait Undefined,215
+2013,Hematotoxicity,3
+2013,Hepatotoxicity and Digestive System Toxicity,2
+2013,Neurotoxicity,2
+2013,Ocular Toxicity,2
+2013,Reproductive Toxicity,8
+2013,Respiratory Toxicity,38
+2014,Bioaccumulation,34
+2014,Carcinogenicity,6832
+2014,Cardiovascular Toxicity,2
+2014,Dermatotoxicity,11
+2014,Developmental Toxicity,134
+2014,Endocrine Toxicity,12
+2014,Environmental Persistence,34
+2014,Environmental Toxicity,13
+2014,Fragrance Allergen,6
+2014,Genotoxicity,11
+2014,Hazard Trait Undefined,157
+2014,Hematotoxicity,11
+2014,Hepatotoxicity and Digestive System Toxicity,57
+2014,Immunotoxicity,32
+2014,Nephrotoxicity and Other Toxicity to the Urinary System,11
+2014,Neurodevelopmental Toxicity,1
+2014,Neurotoxicity,26
+2014,Ocular Toxicity,26
+2014,Other Toxicological Hazard Traits,3
+2014,Reproductive Toxicity,43
+2014,Respiratory Toxicity,125
+2015,Bioaccumulation,9
+2015,Carcinogenicity,5574
+2015,Cardiovascular Toxicity,4
+2015,Developmental Toxicity,123
+2015,Endocrine Toxicity,2
+2015,Environmental Persistence,9
+2015,Environmental Toxicity,165
+2015,Fragrance Allergen,42
+2015,Genotoxicity,1
+2015,Hazard Trait Undefined,281
+2015,Hematotoxicity,5
+2015,Hepatotoxicity and Digestive System Toxicity,10
+2015,Immunotoxicity,1
+2015,Musculoskeletal Toxicity,1
+2015,Neurotoxicity,10
+2015,Ocular Toxicity,8
+2015,Reproductive Toxicity,4
+2015,Respiratory Toxicity,139
+2016,Bioaccumulation,3
+2016,Carcinogenicity,3495
+2016,Dermatotoxicity,1
+2016,Developmental Toxicity,39
+2016,Endocrine Toxicity,2
+2016,Environmental Persistence,3
+2016,Environmental Toxicity,2
+2016,Fragrance Allergen,41
+2016,Genotoxicity,1
+2016,Hazard Trait Undefined,73
+2016,Hepatotoxicity and Digestive System Toxicity,3
+2016,Immunotoxicity,4
+2016,Musculoskeletal Toxicity,1
+2016,Nephrotoxicity and Other Toxicity to the Urinary System,6
+2016,Neurotoxicity,1
+2016,Ocular Toxicity,7
+2016,Other Toxicological Hazard Traits,2
+2016,Reproductive Toxicity,7
+2016,Respiratory Toxicity,33
+2017,Bioaccumulation,100
+2017,Carcinogenicity,4626
+2017,Cardiovascular Toxicity,2
+2017,Dermatotoxicity,3
+2017,Developmental Toxicity,239
+2017,Endocrine Toxicity,73
+2017,Environmental Persistence,100
+2017,Fragrance Allergen,98
+2017,Genotoxicity,1
+2017,Hazard Trait Undefined,409
+2017,Hematotoxicity,4
+2017,Hepatotoxicity and Digestive System Toxicity,74
+2017,Immunotoxicity,89
+2017,Neurotoxicity,6
+2017,Ocular Toxicity,4
+2017,Other Toxicological Hazard Traits,17
+2017,Reproductive Toxicity,125
+2017,Respiratory Toxicity,576
+2018,Bioaccumulation,46
+2018,Carcinogenicity,6820
+2018,Cardiovascular Toxicity,7
+2018,Dermatotoxicity,2
+2018,Developmental Toxicity,70
+2018,Endocrine Toxicity,37
+2018,Environmental Persistence,46
+2018,Environmental Toxicity,3
+2018,Fragrance Allergen,115
+2018,Genotoxicity,1
+2018,Hazard Trait Undefined,489
+2018,Hematotoxicity,12
+2018,Hepatotoxicity and Digestive System Toxicity,46
+2018,Immunotoxicity,43
+2018,Musculoskeletal Toxicity,1
+2018,Nephrotoxicity and Other Toxicity to the Urinary System,4
+2018,Neurotoxicity,10
+2018,Ocular Toxicity,8
+2018,Other Toxicological Hazard Traits,2
+2018,Reproductive Toxicity,46
+2018,Respiratory Toxicity,188
+2019,Bioaccumulation,54
+2019,Carcinogenicity,9286
+2019,Cardiovascular Toxicity,4
+2019,Dermatotoxicity,6
+2019,Developmental Toxicity,111
+2019,Endocrine Toxicity,8
+2019,Environmental Persistence,54
+2019,Environmental Toxicity,40
+2019,Fragrance Allergen,195
+2019,Genotoxicity,3
+2019,Hazard Trait Undefined,295
+2019,Hematotoxicity,7
+2019,Hepatotoxicity and Digestive System Toxicity,53
+2019,Immunotoxicity,60
+2019,Musculoskeletal Toxicity,1
+2019,Nephrotoxicity and Other Toxicity to the Urinary System,1
+2019,Neurodevelopmental Toxicity,2
+2019,Neurotoxicity,5
+2019,Ocular Toxicity,8
+2019,Other Toxicological Hazard Traits,7
+2019,Reproductive Toxicity,63
+2019,Respiratory Toxicity,1019
+2020,Bioaccumulation,4
+2020,Carcinogenicity,2453
+2020,Cardiovascular Toxicity,8
+2020,Dermatotoxicity,8
+2020,Developmental Toxicity,94
+2020,Environmental Persistence,4
+2020,Environmental Toxicity,24
+2020,Fragrance Allergen,91
+2020,Genotoxicity,6
+2020,Hazard Trait Undefined,102
+2020,Hematotoxicity,7
+2020,Hepatotoxicity and Digestive System Toxicity,18
+2020,Immunotoxicity,10
+2020,Nephrotoxicity and Other Toxicity to the Urinary System,67
+2020,Neurotoxicity,18
+2020,Ocular Toxicity,69
+2020,Reproductive Toxicity,14
+2020,Respiratory Toxicity,258
+2021,Bioaccumulation,63
+2021,Carcinogenicity,3186
+2021,Cardiovascular Toxicity,8
+2021,Dermatotoxicity,54
+2021,Developmental Toxicity,189
+2021,Endocrine Toxicity,64
+2021,Environmental Persistence,59
+2021,Environmental Toxicity,89
+2021,Fragrance Allergen,2901
+2021,Genotoxicity,20
+2021,Hazard Trait Undefined,164
+2021,Hematotoxicity,34
+2021,Hepatotoxicity and Digestive System Toxicity,49
+2021,Immunotoxicity,60
+2021,Musculoskeletal Toxicity,33
+2021,Nephrotoxicity and Other Toxicity to the Urinary System,73
+2021,Neurotoxicity,40
+2021,Ocular Toxicity,126
+2021,Other Toxicological Hazard Traits,44
+2021,Reproductive Toxicity,348
+2021,Respiratory Toxicity,503
+2022,Bioaccumulation,630
+2022,Carcinogenicity,9049
+2022,Cardiovascular Toxicity,53
+2022,Dermatotoxicity,1013
+2022,Developmental Toxicity,653
+2022,Endocrine Toxicity,424
+2022,Environmental Persistence,626
+2022,Environmental Toxicity,58
+2022,Fragrance Allergen,18620
+2022,Genotoxicity,49
+2022,Hazard Trait Undefined,630
+2022,Hematotoxicity,621
+2022,Hepatotoxicity and Digestive System Toxicity,510
+2022,Immunotoxicity,678
+2022,Musculoskeletal Toxicity,95
+2022,Nephrotoxicity and Other Toxicity to the Urinary System,183
+2022,Neurodevelopmental Toxicity,8
+2022,Neurotoxicity,299
+2022,Ocular Toxicity,1151
+2022,Other Toxicological Hazard Traits,251
+2022,Reproductive Toxicity,1468
+2022,Respiratory Toxicity,3514
+2023,Bioaccumulation,97
+2023,Carcinogenicity,3791
+2023,Cardiovascular Toxicity,15
+2023,Dermatotoxicity,229
+2023,Developmental Toxicity,422
+2023,Endocrine Toxicity,315
+2023,Environmental Persistence,97
+2023,Environmental Toxicity,40
+2023,Fragrance Allergen,8696
+2023,Genotoxicity,18
+2023,Hazard Trait Undefined,113
+2023,Hematotoxicity,109
+2023,Hepatotoxicity and Digestive System Toxicity,87
+2023,Immunotoxicity,329
+2023,Musculoskeletal Toxicity,21
+2023,Nephrotoxicity and Other Toxicity to the Urinary System,88
+2023,Neurodevelopmental Toxicity,3
+2023,Neurotoxicity,92
+2023,Ocular Toxicity,274
+2023,Other Toxicological Hazard Traits,279
+2023,Reproductive Toxicity,581
+2023,Respiratory Toxicity,1508
+2024,Bioaccumulation,286
+2024,Carcinogenicity,4636
+2024,Cardiovascular Toxicity,19
+2024,Dermatotoxicity,320
+2024,Developmental Toxicity,589
+2024,Endocrine Toxicity,339
+2024,Environmental Persistence,287
+2024,Environmental Toxicity,58
+2024,Fragrance Allergen,13497
+2024,Genotoxicity,36
+2024,Hazard Trait Undefined,113
+2024,Hematotoxicity,208
+2024,Hepatotoxicity and Digestive System Toxicity,114
+2024,Immunotoxicity,279
+2024,Musculoskeletal Toxicity,49
+2024,Nephrotoxicity and Other Toxicity to the Urinary System,285
+2024,Neurotoxicity,220
+2024,Ocular Toxicity,557
+2024,Other Toxicological Hazard Traits,203
+2024,Reproductive Toxicity,470
+2024,Respiratory Toxicity,2610
+2025,Bioaccumulation,328
+2025,Carcinogenicity,5345
+2025,Cardiovascular Toxicity,49
+2025,Dermatotoxicity,571
+2025,Developmental Toxicity,804
+2025,Endocrine Toxicity,948
+2025,Environmental Persistence,328
+2025,Environmental Toxicity,133
+2025,Fragrance Allergen,19587
+2025,Genotoxicity,135
+2025,Hazard Trait Undefined,494
+2025,Hematotoxicity,210
+2025,Hepatotoxicity and Digestive System Toxicity,234
+2025,Immunotoxicity,241
+2025,Musculoskeletal Toxicity,21
+2025,Nephrotoxicity and Other Toxicity to the Urinary System,559
+2025,Neurodevelopmental Toxicity,11
+2025,Neurotoxicity,414
+2025,Ocular Toxicity,1066
+2025,Other Toxicological Hazard Traits,127
+2025,Reproductive Toxicity,1184
+2025,Respiratory Toxicity,4084
+2026,Bioaccumulation,19
+2026,Carcinogenicity,103
+2026,Dermatotoxicity,5
+2026,Developmental Toxicity,11
+2026,Endocrine Toxicity,2
+2026,Environmental Persistence,19
+2026,Fragrance Allergen,269
+2026,Hazard Trait Undefined,3
+2026,Immunotoxicity,2
+2026,Nephrotoxicity and Other Toxicity to the Urinary System,1
+2026,Neurotoxicity,1
+2026,Ocular Toxicity,6
+2026,Other Toxicological Hazard Traits,2
+2026,Reproductive Toxicity,5
+2026,Respiratory Toxicity,44
